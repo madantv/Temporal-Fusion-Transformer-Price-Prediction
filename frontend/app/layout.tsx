@@ -24,8 +24,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${sans.variable} ${display.variable} font-sans antialiased`}>
+    // Allows theme attrs on <html> and extension-injected attrs on <html>/<body>.
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${sans.variable} ${display.variable} font-sans antialiased`}
+        suppressHydrationWarning
+      >
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
